@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instafire.models.Post
 import com.example.instafire.models.User
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -75,7 +77,11 @@ open class PostsActivity : AppCompatActivity() {
                     Log.i(TAG, "Post | $post")
             }
         }
-
+        val fab = findViewById<FloatingActionButton>(R.id.fabCreate)
+        fab.setOnClickListener{
+            val intent = Intent(this, CreateActivity::class.java, )
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
